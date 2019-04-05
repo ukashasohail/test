@@ -2,7 +2,7 @@ import sqlite3
 
 conn = sqlite3.connect("file.db")
 
-c = conn.cursor()
+c = conn.scursor()
 
 #create table command
 c.execute("CREATE TABLE cis_te (first_name text,last_name text,  num int)")
