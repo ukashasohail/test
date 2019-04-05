@@ -2,24 +2,26 @@ import sqlite3
 
 conn = sqlite3.connect("file.db")
 
-c = conn.scursor()
+c = conn.cursor()
 
 #create table command
-c.execute("CREATE TABLE cis_te (first_name text,last_name text,  num int)")
+# c.execute("CREATE TABLE employee (first_name text,last_name text,  num int)")
 
 #insert function
-def insert_record(first_name,last_name,num):
+def insert_record(first_name,last_name,emp_num):
 
-    c.execute("INSERT INTO cis_te VALUES(?,?,?)",(first_name,last_name,num))
+    c.execute("INSERT INTO employee VALUES(?,?,?)",(first_name,last_name,emp_num))
     conn.commit()
 
 #show record function
-def show_record(last_name1):
+def show_record():
 
-    c.execute("SELECT * FROM cis_te where last_name=(?)",(last_name1))
-    print(c.fetchall())
+    c.execute("SELECT * FROM employee where first_name='hamza'")
+    print(c.fetchone())
 #insert function call
-insert_record()
+# insert_record('syed','osama',5000)
+# insert_record('hamza','hameed',6000)
+# insert_record('ammar','sleepyhead',1000)
 
 #show record function call
 show_record()
